@@ -4,6 +4,8 @@ A Python Flask application utilizing Python, Tailwind, and the OpenAI API to pro
 
 The application will be hosted on AWS. 
 
+More will be added here once the project is fully deployed and working properly.
+
 ### Technologies 
 
 * Python
@@ -24,4 +26,3 @@ The application will be hosted on AWS.
 * 0.1
     * Initial Release
 
-More will be added here once the project is fully deployed and working properly.
