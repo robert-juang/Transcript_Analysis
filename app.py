@@ -12,8 +12,8 @@ load_dotenv()
 
 app = Flask(__name__)
 app.config["UPLOAD_FOLDER"] = "./static/pdf"
-app.secret_key = os.getenv("app_secret")
-openai.api_key = os.getenv("openai_API")
+app.secret_key = os.environ("app_secret")
+openai.api_key = os.environ("openai_API")
 
 @app.route("/")
 @app.route("/home") 
