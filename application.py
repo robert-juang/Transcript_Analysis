@@ -12,8 +12,9 @@ from pdfreader import PDFDocument, SimplePDFViewer
 
 application = Flask(__name__)
 application.config["UPLOAD_FOLDER"] = "./static/pdf"
-application.secret_key = os.environ["app_secret"]
-openai.api_key = os.environ["openai_API"]
+print(os.environ) 
+application.secret_key = os.environ.get("app_secret")
+openai.api_key = os.environ.get("openai_API")
 
 @application.route("/")
 @application.route("/home") 
@@ -235,5 +236,11 @@ def upload_report():
 if __name__ == "__main__":
     session['summary'] = "no file uploaded yet"
     application.run(debug=True)
+    
+    application.secret_key = 'super secret key'
+    application.config['SESSION_TYPE'] = 'filesystem'
+
+    session.init_app(application)
+
 
 
