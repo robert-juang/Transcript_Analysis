@@ -4,7 +4,7 @@ A Python Flask application utilizing Python, Tailwind, and the OpenAI API to pro
 
 The application is hosted on AWS EB. [Here](http://transcript-analysis-env.eba-5qifftmw.us-east-2.elasticbeanstalk.com/) 
 
-Here's a sample: 
+Here's a demonstration
 ![Alt text](/static/images/demo.png "Body1")
 
 ### Technologies 
