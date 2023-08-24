@@ -7,6 +7,10 @@ The application is hosted on AWS EB. [Here](http://transcript-analysis-env.eba-5
 Here's a demonstration
 ![Alt text](/static/images/demo.png "Body1")
 
+## Comments
+
+The project served as an introduction to python and the flask framework, as well as tailwind css for styling. In the future, more features like multiple routes, custom data extraction (including utilizing AI to extract JSON), and processing a wider selection of pdf documents will be implemented. 
+  
 ### Technologies 
 
 * Python
