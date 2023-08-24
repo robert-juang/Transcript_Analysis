@@ -10,13 +10,13 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-app = Flask(__name__)
-app.config["UPLOAD_FOLDER"] = "./static/pdf"
-app.secret_key = os.environ("app_secret")
+application = Flask(__name__)
+application.config["UPLOAD_FOLDER"] = "./static/pdf"
+application.secret_key = os.environ("app_secret")
 openai.api_key = os.environ("openai_API")
 
-@app.route("/")
-@app.route("/home") 
+@application.route("/")
+@application.route("/home") 
 def main():
     filestate = None
     filename = session.get('filename', "")  # get the filename from the session, if it's not set, use 'default.pdf'
@@ -28,11 +28,11 @@ def main():
         filestate = True
     return render_template('home.html', filestate=filestate, filename=filename, summary=summary, classes=classes, recommendation=rec) 
 
-@app.route("/about") 
+@application.route("/about") 
 def about():
     return "Hello about page"
 
-@app.route('/upload-transcript', methods=['POST'])
+@application.route('/upload-transcript', methods=['POST'])
 def upload_transcript():
     if 'file' not in request.files:
         return 'No file part'
@@ -146,7 +146,7 @@ def upload_transcript():
     return redirect(url_for('main'))
 
 #this is for the future when I code in new things for the report instead of just the
-@app.route('/upload-report', methods=['POST'])
+@application.route('/upload-report', methods=['POST'])
 def upload_report():
     if 'file' not in request.files:
         return 'No file part'
@@ -234,6 +234,6 @@ def upload_report():
 
 if __name__ == "__main__":
     session['summary'] = "no file uploaded yet"
-    app.run(debug=True)
+    application.run(debug=True)
 
 
