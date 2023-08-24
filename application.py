@@ -6,14 +6,14 @@ import re
 import json
 import openai 
 from pdfreader import PDFDocument, SimplePDFViewer
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 
-load_dotenv()
+# load_dotenv()
 
 application = Flask(__name__)
 application.config["UPLOAD_FOLDER"] = "./static/pdf"
-application.secret_key = os.environ("app_secret")
-openai.api_key = os.environ("openai_API")
+application.secret_key = os.environ["app_secret"]
+openai.api_key = os.environ["openai_API"]
 
 @application.route("/")
 @application.route("/home") 
@@ -44,7 +44,7 @@ def upload_transcript():
     if file:
         filename = secure_filename(file.filename)
         session['filename'] = filename  # store the filename in the session
-        file.save(os.path.join(app.config["UPLOAD_FOLDER"], filename))
+        file.save(os.path.join(application.config["UPLOAD_FOLDER"], filename))
     
     #call openai api here 
     filename = f"./static/pdf/{filename}"
@@ -158,7 +158,7 @@ def upload_report():
     if file:
         filename = secure_filename(file.filename)
         session['filename'] = filename  # store the filename in the session
-        file.save(os.path.join(app.config["UPLOAD_FOLDER"], filename))
+        file.save(os.path.join(application.config["UPLOAD_FOLDER"], filename))
     
     #call openai api here 
     filename = f"./static/pdf/{filename}"
