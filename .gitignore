@@ -1,4 +1,12 @@
+# environment
 .env
 .venv
+
+#unnecessary files
 compare.py
+
+#cache files
 __pycache__
+
+#Dock files
+Dockerfile
